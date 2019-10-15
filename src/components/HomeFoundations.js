@@ -1,15 +1,15 @@
 import React from 'react';
 
 
-class HomeSteps extends React.Component {
+class HomeFoundations extends React.Component {
     render() {
 
         return (
             <>
 
-                HomeSteps
+                HomeFoundations
             </>
         )
     }
 }
-export default HomeSteps;
+export default HomeFoundations;

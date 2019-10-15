@@ -6,8 +6,11 @@ class HomeThreeColumns extends React.Component {
 
         return (
             <>
-
+                <div style={{
+                    height: "100vh"
+                }}>
                 HomeThreeColumns
+                </div>
             </>
         )
     }

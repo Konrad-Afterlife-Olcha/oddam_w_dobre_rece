@@ -1,15 +1,15 @@
 import React from 'react';
 
 
-class HomeSteps extends React.Component {
+class HomeAboutUs extends React.Component {
     render() {
 
         return (
             <>
 
-                HomeSteps
+                HomeAboutUs
             </>
         )
     }
 }
-export default HomeSteps;
+export default HomeAboutUs;

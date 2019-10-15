@@ -1,15 +1,15 @@
 import React from 'react';
 
 
-class HomeSteps extends React.Component {
+class Register extends React.Component {
     render() {
 
         return (
             <>
 
-                HomeSteps
+                Rejestracja
             </>
         )
     }
 }
-export default HomeSteps;
+export default Register;
