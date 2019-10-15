@@ -6,9 +6,7 @@ class HomeThreeColumns extends React.Component {
 
         return (
             <>
-                <div style={{
-                    height: "100vh"
-                }}>
+                <div>
                 HomeThreeColumns
                 </div>
             </>

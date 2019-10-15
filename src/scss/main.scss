@@ -1,8 +1,9 @@
 @import "settings/_reset.css";
-@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700|Open+Sans:400,600,700&display=swap&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700|Open+Sans:300,400,600,700&display=swap&subset=latin-ext');
 @import "settings/_fonts.scss";
 @import "settings/_colors.scss";
 @import "menu";
+@import "homeHeader";
 
 
 body {

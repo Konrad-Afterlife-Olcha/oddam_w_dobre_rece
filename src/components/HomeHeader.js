@@ -12,12 +12,19 @@ class HomeHeader extends React.Component {
 
         return (
             <>
-                <div style={{
-                    height: "100vh"
-                }}>
-                HomeHeader
-                    <Link to="/logowanie">Oddaj rzeczy</Link>
-                    <Link to="/logowanie">Zorganizuj zbiórkę</Link>
+                <div className={"home-header-container"}>
+                    <div className={"home-header-image"}></div>
+                    <div className={"home-header-article"}>
+                        <div className={"home-header-text"}>
+                            <p>Zacznij pomagać!</p><br/>
+                            <p>Oddaj niechciane rzeczy w zaufane ręce</p>
+                            <div className={"home-header-line"}></div>
+                        </div>
+                        <div className={"home-header-links"}>
+                            <Link to="/logowanie" className={"home-header-link"}>Oddaj <br/> rzeczy</Link>
+                            <Link to="/logowanie" className={"home-header-link"}>Zorganizuj <br/> zbiórkę</Link>
+                        </div>
+                    </div>
                 </div>
             </>
         )
