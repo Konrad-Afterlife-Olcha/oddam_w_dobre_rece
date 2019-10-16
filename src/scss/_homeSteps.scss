@@ -1,0 +1,97 @@
+.home-steps-container {
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  color: $color-black;
+}
+.home-steps-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 25%;
+  font-size: 2.3rem;
+}
+.home-steps-line {
+  background-image: url("../assets/Decoration.svg");
+  background-repeat: no-repeat;
+  width: 253px;
+  height: 33px;
+  margin-top: 20px;
+}
+.home-steps-fourSteps {
+  display: flex;
+  justify-content: center;
+  background-color: $color-white;
+}
+.home-steps-fourSteps-container {
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+}
+.home-steps-singleStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 40px 0;
+  p {
+    padding: 10px;
+  }
+  p:nth-of-type(1) {
+    font-size: 1.2rem;
+    width: 150px;
+    text-align: center;
+  }
+  hr {
+    width: 70px;
+    border-top: 1px solid $color-gray;
+
+  }
+  p:nth-of-type(2) {
+    font-size: 1rem;
+    width: 150px;
+    text-align: center;
+  }
+}
+.home-steps-icon1 {
+  background-image: url("../assets/Icon-1.svg");
+  width: 83px;
+  height: 83px;
+}
+.home-steps-icon2 {
+  background-image: url("../assets/Icon-2.svg");
+  width: 83px;
+  height: 83px;
+}
+.home-steps-icon3 {
+  background-image: url("../assets/Icon-3.svg");
+  width: 83px;
+  height: 83px;
+}
+.home-steps-icon4 {
+  background-image: url("../assets/Icon-4.svg");
+  width: 83px;
+  height: 83px;
+}
+.home-steps-bottom {
+  display: flex;
+  justify-content: center;
+  height: 20%;
+}
+.home-steps-button {
+  display: block;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: $color-black;
+  font-size: 2rem;
+  font-weight: 100;
+  text-transform: uppercase;
+  border: 1px solid $color-black;
+  width: 300px;
+  padding: 20px;
+  text-align: center;
+  height: 128px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}

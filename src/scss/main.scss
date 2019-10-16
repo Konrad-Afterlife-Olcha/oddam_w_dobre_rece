@@ -4,7 +4,9 @@
 @import "settings/_colors.scss";
 @import "menu";
 @import "homeHeader";
-
+@import "homeThreeColumns";
+@import "homeSteps";
+@import "homeAboutUs";
 
 body {
   font-family: $font-base;

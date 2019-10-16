@@ -1,0 +1,30 @@
+.home-columns-container {
+  background-image: url("../assets/Home_-_ThreeColumns.png");
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.home-single-column {
+  color: mix($color-gray, $color-black);
+  width: 20%;
+  text-align: center;
+  p {
+    margin: 15px 0;
+    font-weight: 300;
+  }
+  p:nth-child(1) {
+    font-size: 5rem;
+    margin-top: 40px;
+
+  }
+  p:nth-child(2) {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  p:nth-child(3) {
+    font-size: 0.9rem ;
+    line-height: 1.3rem;
+    margin-bottom: 60px;
+  }
+}

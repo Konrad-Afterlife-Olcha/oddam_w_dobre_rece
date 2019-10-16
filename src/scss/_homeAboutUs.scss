@@ -1,0 +1,44 @@
+.home-aboutus-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+}
+.home-aboutus-article-container {
+  background-color: $color-white;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+.home-aboutus-article {
+  box-sizing: border-box;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: $color-black
+}
+.home-aboutus-header {
+  font-size: 2.3rem;
+  font-weight: 500;
+}
+.home-aboutus-text {
+  font-size: 1.7rem;
+  text-align: center;
+  padding-bottom: 100px;
+  line-height: 3rem;
+}
+.home-aboutus-signature {
+ align-self: flex-end;
+}
+.home-aboutus-signature {
+  background-image: url("../assets/Signature.svg");
+  width: 209px;
+  height: 149px;
+}
+.home-aboutus-picture {
+  background-image: url("../assets/People.jpg");
+  background-size: cover;
+  width: 50%;
+  height: 100%;
+}

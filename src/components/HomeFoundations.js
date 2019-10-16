@@ -7,7 +7,7 @@ class HomeFoundations extends React.Component {
         return (
             <>
 
-                HomeFoundations
+
             </>
         )
     }

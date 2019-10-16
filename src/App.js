@@ -92,16 +92,16 @@ class App extends React.Component {
                     <Link to="/">Start</Link>
                   </li>
                   <li>
-                    <Link to="homeThreeColumns" spy={true} smooth={true} duration={500}>O co chodzi?</Link>
+                    <Link to="homeSteps" spy={true} smooth={true} duration={1000}>O co chodzi?</Link>
                   </li>
                   <li>
-                    <Link to="homeAboutUs" spy={true} smooth={true} duration={500}>O nas</Link>
+                    <Link to="homeAboutUs" spy={true} smooth={true} duration={1000}>O nas</Link>
                   </li>
                   <li>
-                    <Link to="homeFoundations" spy={true} smooth={true} duration={500}>Fundacja i organizacje</Link>
+                    <Link to="homeFoundations" spy={true} smooth={true} duration={1000}>Fundacja i organizacje</Link>
                   </li>
                   <li>
-                    <Link to="homeContact" spy={true} smooth={true} duration={500}>Kontakt</Link>
+                    <Link to="homeContact" spy={true} smooth={true} duration={1000}>Kontakt</Link>
                   </li>
                 </ul>
               </nav>
