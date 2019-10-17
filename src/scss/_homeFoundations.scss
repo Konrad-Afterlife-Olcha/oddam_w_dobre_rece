@@ -1,0 +1,85 @@
+.home-foundations-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $color-black
+}
+.home-foundations-h1 {
+  font-weight: 400;
+  font-size: 2.3rem;
+  margin-top: 8%;
+}
+.home-foundations-header {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 400;
+}
+.home-foundations-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.home-foundations-nav li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: 1.5rem;
+  width: 25%;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+.home-foundations-nav .active {
+  border: 1px solid $color-black;
+}
+.home-foundations-about-container {
+  height: 20%;
+  display: flex;
+  justify-content: center;
+}
+.home-foundations-about {
+  margin: 60px 0 ;
+  width: 50%;
+  text-align: center;
+  font-size: 1.3rem;
+}
+.home-foundations-pagination-area {
+  width: 65%;
+}
+.home-foundations-singleElem {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  .left-side {
+    h2 {
+      font-weight: 300;
+    }
+  }
+  .right-side {
+    font-weight: 300;
+  }
+}
+.home-foundations-singleElem + hr {
+  color: $color-white;
+}
+.home-foundations-pagination {
+  .digits {
+    display: flex;
+    div {
+      padding: 15px;
+      margin: 0 15px;
+      cursor: pointer;
+    }
+    .activeDigit {
+      box-shadow: 1px 1px 1px 1px $color-gray;
+    }
+  }
+}

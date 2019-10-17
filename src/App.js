@@ -89,7 +89,7 @@ class App extends React.Component {
               <nav>
                 <ul className={"main-menu"}>
                   <li>
-                    <Link to="/">Start</Link>
+                    <NavLink to="/">Start</NavLink>
                   </li>
                   <li>
                     <Link to="homeSteps" spy={true} smooth={true} duration={1000}>O co chodzi?</Link>
