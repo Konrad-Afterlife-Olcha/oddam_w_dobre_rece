@@ -11,6 +11,7 @@ import {Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } f
 import Home from "./components/Home";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import Logout from "./components/Logout";
 
 
 
@@ -89,7 +90,7 @@ class App extends React.Component {
               <nav>
                 <ul className={"main-menu"}>
                   <li>
-                    <NavLink to="/">Start</NavLink>
+                    <NavLink activeClassName={"active-menu"} exact to="/">Start</NavLink>
                   </li>
                   <li>
                     <Link to="homeSteps" spy={true} smooth={true} duration={1000}>O co chodzi?</Link>
@@ -107,15 +108,19 @@ class App extends React.Component {
               </nav>
             </div>
             <Switch>
-              <Route path="/logowanie">
-                <Login/>
-              </Route>
-              <Route path="/rejestracja">
-                <Register/>
-              </Route>
-              <Route path="/">
-                <Home/>
-              </Route>
+                <Route path="/logowanie">
+                        <Login/>
+                </Route>
+                <Route path="/rejestracja">
+                        <Register/>
+                </Route>
+                <Route path="/wylogowano">
+                            <Logout/>
+                </Route>
+                <Route path="/">
+                        <Home/>
+                </Route>
+
             </Switch>
 
           </Router>

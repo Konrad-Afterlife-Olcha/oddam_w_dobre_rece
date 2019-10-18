@@ -1,0 +1,95 @@
+.login-container {
+  width: 100%;
+  height: 90vh;
+  margin-top: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $color-black
+}
+.login-area {
+  width: 20%;
+  min-width: 400px;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+}
+.login-h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 400;
+}
+.login-inputs-area {
+  width: 100%;
+  height: 50%;
+  background-color: $color-white;
+}
+.login-inputs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 10% 0;
+  justify-content: space-around;
+  align-items: center;
+}
+.login-inputs div p {
+  margin: 5px 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.login-inputs div {
+  width: 70%;
+}
+.login-input {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid gray;
+  font-size: 1rem;
+  font-family: $font-base;
+  color: $color-black;
+}
+
+.log-button,.reg-button {
+  position: absolute;
+  background-color: white;
+  border: none;
+  font-size: 1.1rem;
+  font-family: $font-base;
+  font-weight: 300;
+
+
+}
+
+.log-button {
+  right: 0;
+  bottom: 0;
+  transform: translateX(50%);
+  color: $color-black;
+  border: 1px solid $color-black;
+  padding: 10px;
+}
+.reg-button{
+  left: 0;
+  bottom: 0;
+  transform: translateX(-50%);
+  padding: 10px;
+}
+.reg-button a {
+  text-decoration: none;
+  color: $color-black;
+}
+.log-button a {
+  text-decoration: none;
+  color: $color-black;
+}
+
+
+.reg-inputs-area {
+  min-height: 350px;
+}
