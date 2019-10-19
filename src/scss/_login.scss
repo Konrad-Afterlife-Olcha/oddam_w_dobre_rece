@@ -15,7 +15,6 @@
   flex-direction: column;
   align-items: center;
   position: relative;
-
 }
 .login-h2 {
   text-align: center;
@@ -37,7 +36,7 @@
   justify-content: space-around;
   align-items: center;
 }
-.login-inputs div p {
+.login-inputs div{
   margin: 5px 0;
   font-size: 1rem;
   font-weight: 600;
