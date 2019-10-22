@@ -1,0 +1,51 @@
+.donations-container {
+  display: flex;
+}
+.donations-steps {
+  display: flex;
+  margin: 20px;
+}
+.donations-background {
+  background-image: url("../assets/Form-Hero-Image.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 0 0;
+  width: 100vh;
+  height: 84vh;
+}
+.donations-main {
+  height: 853px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+
+
+
+.donations-rotated-square {
+  width: calc(4vw + 4vh);
+  height: calc(4vw + 4vh);
+  border: 1px solid $color-gray;
+  transform: rotate(45deg);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: $color-gray;
+  margin: calc(0.2vw + 0.2vh);
+}
+.donations-rotated-square-text {
+  font-size: 0.9rem;
+}
+.donations-rotated-square p {
+  text-align: center;
+}
+.donations-rotated-square-number {
+  transform: translateY(-10px);
+  font-size: 1.5rem;
+}
+.donations-rotated-square div {
+  transform: rotate(-45deg);
+}
