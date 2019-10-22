@@ -7,7 +7,7 @@ import {
   NavLink
 } from "react-router-dom";
 import firebase from "firebase";
-import firebaseConfig from "./assets/.firebaseConfig";
+import firebaseConfig from "./firebaseConfig";
 import * as Scroll from 'react-scroll';
 import {Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 import Home from "./components/Home";
