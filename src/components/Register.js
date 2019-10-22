@@ -1,6 +1,16 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
+import firebase from "firebase";
 
+
+const initialState = {
+    password: "",
+    password2: "",
+    email: "",
+    invalidPassword: false,
+    invalidPassword2: false,
+    invalidEmail: false
+}
 
 class Register extends React.Component {
     constructor(){
@@ -46,7 +56,7 @@ class Register extends React.Component {
     }
 
     render() {
-
+        console.log(firebase.auth().currentUser)
         return (
             <>
                 <div className={"login-container"}>
@@ -95,7 +105,18 @@ class Register extends React.Component {
                                     this.passwordValidation();
                                     this.password2Validation();
                                     if(this.emailValidation() && this.passwordValidation() && this.password2Validation()){
-                                        console.log("Rejestracja zakończona pomyslnie")
+
+                                        firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then(()=> {
+                                            this.setState(initialState);
+                                            this.props.history.push('/')
+
+                                        }).catch(function(error) {
+                                            // Handle Errors here.
+                                            var errorCode = error.code;
+                                            var errorMessage = error.message;
+                                            console.log(errorCode, errorMessage)
+                                            // ...
+                                        });
                                     }
                                 }} className={"log-button"} type="submit">Załóż konto</button>
                             </form>
@@ -107,4 +128,4 @@ class Register extends React.Component {
         )
     }
 }
-export default Register;
+export default withRouter(Register);

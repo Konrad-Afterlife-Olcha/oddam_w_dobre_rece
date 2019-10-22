@@ -6,22 +6,36 @@ import {
   Route,
   NavLink
 } from "react-router-dom";
+import firebase from "firebase";
+import firebaseConfig from "./assets/firebaseConfig";
 import * as Scroll from 'react-scroll';
 import {Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 import Home from "./components/Home";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Logout from "./components/Logout";
+import Donations from "./components/Donations";
+import HomeContact from "./components/HomeContact";
 
+firebase.initializeApp(firebaseConfig)
+
+// const settings = {timestampsInSnapshots: true};
 
 
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      isLoggedIn: false
+    }
     this.scrollToTop = this.scrollToTop.bind(this);
   }
   componentDidMount() {
-
+    firebase.auth().onAuthStateChanged(user =>
+      this.setState({
+        isLoggedIn: !!user
+      })
+    )
     Events.scrollEvent.register('begin', function () {
       console.log("begin", arguments);
     });
@@ -78,14 +92,33 @@ class App extends React.Component {
           <Router>
             <div className={"menu"}>
               <nav>
+                {this.state.isLoggedIn ?
                 <ul className={"menu-login"}>
                   <li>
-                    <NavLink to="/logowanie">Zaloguj</NavLink>
+                    <p>Cześć {firebase.auth().currentUser.email}</p>
+                  </li>
+                  <li className={"menu-active-button"}>
+                    <NavLink to="/oddaj-rzeczy">Oddaj rzeczy</NavLink>
                   </li>
                   <li>
-                    <NavLink to="/rejestracja">Załóż konto</NavLink>
+                    <NavLink to="wylogowano">
+                    <button className={"menu-logout"} onClick={()=> {
+                      firebase.auth().signOut();
+                    }}>Wyloguj</button>
+                    </NavLink>
                   </li>
-                </ul>
+                </ul> :
+                  <ul className={"menu-login"}>
+                      <li>
+                        <NavLink to="/logowanie">Zaloguj</NavLink>
+                      </li>
+                      <li className={"menu-active-button"}>
+                      <NavLink to="/rejestracja">Załóż konto</NavLink>
+                    </li>
+                  </ul>}
+
+
+
               </nav>
               <nav>
                 <ul className={"main-menu"}>
@@ -117,11 +150,16 @@ class App extends React.Component {
                 <Route path="/wylogowano">
                             <Logout/>
                 </Route>
+              <Route path="/oddaj-rzeczy">
+                <Donations/>
+                <HomeContact/>
+              </Route>
                 <Route path="/">
                         <Home/>
                 </Route>
 
-            </Switch>
+
+                </Switch>
 
           </Router>
 

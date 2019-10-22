@@ -14,10 +14,21 @@
   color: $color-gray;
   font-size: 0.8rem;
 }
-.menu-login li:last-child {
+.menu-email p {
+  color: $color-black;
+  font-size: 0.8rem;
+}
+.menu-logout {
+  background-color: transparent;
+  border: none;
+  font-family: $font-base;
+  color: $color-black
+}
+.menu-active-button {
   border: 1px solid $color-yellow;
 }
 .menu-login li {
+  font-size: 0.8rem;
   padding: 5px 7px;
   margin: 0 5px;
 }

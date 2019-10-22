@@ -1,8 +1,17 @@
 import React from 'react';
 import {
-    Link
+    Link, withRouter
 } from "react-router-dom";
+import firebaseui from "firebaseui";
+import firebase from "firebase";
+import StyledFirebaseAuth from "react-firebaseui/FirebaseAuth"
 
+const uiConfig = {
+    signInOptions: [
+        firebase.auth.EmailAuthProvider.PROVIDER_ID
+    ],
+    signInSuccessUrl : "/"
+}
 
 class Login extends React.Component {
     constructor(){
@@ -35,14 +44,14 @@ class Login extends React.Component {
         }
         else {return true}
     }
-
-
     render() {
-
         return (
             <>
+                {/*<StyledFirebaseAuth*/}
+                {/*    uiConfig={uiConfig}*/}
+                {/*    firebaseAuth={firebase.auth()}*/}
+                {/*/>*/}
                 <div className={"login-container"}>
-
                     <div className={"login-area"}>
                         <div className={"login-header"}>
                             <h2 className={"login-h2"}>Zaloguj się</h2>
@@ -83,7 +92,23 @@ class Login extends React.Component {
                                                 emailInvalid: false,
                                                 passwordInvalid: false,
                                             })
-                                            console.log("Pomyślnie zalogowano")
+                                            firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then(()=> {
+                                                this.setState({
+                                                    loginSuccess: true,
+                                                    email : "",
+                                                    password: "",
+                                                    emailInvalid: false,
+                                                    passwordInvalid: false,
+                                                });
+                                                this.props.history.push('/')
+
+                                            }).catch(function(error) {
+                                                // Handle Errors here.
+                                                var errorCode = error.code;
+                                                var errorMessage = error.message;
+                                                console.log(errorCode, errorMessage)
+                                                // ...
+                                            });
                                         }
                                 }} className={"button-log-reg log-button"} type="submit">Zaloguj się</button>
                             </form>
@@ -95,4 +120,4 @@ class Login extends React.Component {
         )
     }
 }
-export default Login;
+export default withRouter(Login);

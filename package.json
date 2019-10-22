@@ -4,9 +4,12 @@
   "private": true,
   "homepage": "http://Konrad-Afterlife-Olcha.github.io/oddam",
   "dependencies": {
+    "firebase": "^7.2.1",
+    "firebaseui": "^4.2.0",
     "node-sass": "^4.12.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
+    "react-firebaseui": "^4.0.0",
     "react-paginate": "^6.3.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",

@@ -11,6 +11,10 @@
 @import "homeContact";
 @import "login";
 @import "logout";
+html {
+    font-size: calc(8px + (0.3vw + 0.3vh));
+}
+
 body {
   font-family: $font-base;
 }
