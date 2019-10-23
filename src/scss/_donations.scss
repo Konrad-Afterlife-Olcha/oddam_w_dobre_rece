@@ -1,5 +1,9 @@
 .donations-container {
   display: flex;
+  flex-direction: column;
+}
+.donations-header-container {
+  display: flex;
 }
 .donations-steps {
   display: flex;
@@ -48,4 +52,20 @@
 }
 .donations-rotated-square div {
   transform: rotate(-45deg);
+}
+.steps-header {
+  background-color: $color-yellow;
+  padding: 40px 100px;
+}
+.step-h1 {
+  font-size: 1.5rem;
+}
+.step-button {
+  padding: 8px 16px;
+  background-color: transparent;
+  border: 1px solid $color-gray;
+  margin: 10px;
+  font-family: $font-base;
+  font-size: 0.8rem;
+  cursor: pointer;
 }
