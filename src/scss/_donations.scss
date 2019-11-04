@@ -37,7 +37,7 @@
   color: $color-gray;
 }
 .step-counter {
-  padding: 20px 0 20px 5%;
+  padding: 20px 0 20px 100px;
   color: $color-gray;
 }
 .step-area {
@@ -49,10 +49,9 @@
   height: 80vh;
 }
 .step-details {
-  border: 1px solid red;
   width: 40%;
   height: 70%;
-  margin-left: 5%;
+  margin-left: 100px;
 }
 .steps-nav {
   margin: 20px 0 0 5%
@@ -98,4 +97,33 @@
   font-family: $font-base;
   font-size: 0.8rem;
   cursor: pointer;
+}
+.radioText {
+  display: inline-block;
+ padding: 10px;
+}
+.step-header {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+.step-small-header {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 10px 10px 10px 0;
+}
+.select-location {
+  margin: 10px 10px 10px 0;
+
+}
+select {
+  background-color: transparent;
+  width: 160px;
+}
+input[type=text] {
+  background-color: transparent;
+  border: 1px solid $color-gray;
+  width: 300px;
+}
+form {
+  color: $color-black
 }
