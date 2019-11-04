@@ -8,8 +8,7 @@ import {
 } from "react-router-dom";
 import firebase from "firebase";
 import firebaseConfig from "./firebaseConfig";
-import * as Scroll from 'react-scroll';
-import {Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import {Link , Events} from 'react-scroll'
 import Home from "./components/Home";
 import Login from "./components/Login";
 import Register from "./components/Register";
@@ -28,7 +27,6 @@ class App extends React.Component {
     this.state = {
       isLoggedIn: false
     }
-    this.scrollToTop = this.scrollToTop.bind(this);
   }
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user =>
@@ -45,41 +43,7 @@ class App extends React.Component {
     });
 
   }
-  scrollToTop() {
-    scroll.scrollToTop();
-  }
-  scrollTo() {
-    scroller.scrollTo('scroll-to-element', {
-      duration: 800,
-      delay: 0,
-      smooth: 'easeInOutQuart'
-    })
-  }
-  scrollToWithContainer() {
 
-    let goToContainer = new Promise((resolve, reject) => {
-
-      Events.scrollEvent.register('end', () => {
-        resolve();
-        Events.scrollEvent.remove('end');
-      });
-
-      scroller.scrollTo('scroll-container', {
-        duration: 800,
-        delay: 0,
-        smooth: 'easeInOutQuart'
-      });
-
-    });
-
-    goToContainer.then(() =>
-        scroller.scrollTo('scroll-container-second-element', {
-          duration: 800,
-          delay: 0,
-          smooth: 'easeInOutQuart',
-          containerId: 'scroll-container'
-        }));
-  }
   componentWillUnmount() {
     Events.scrollEvent.remove('begin');
     Events.scrollEvent.remove('end');

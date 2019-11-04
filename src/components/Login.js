@@ -2,16 +2,14 @@ import React from 'react';
 import {
     Link, withRouter
 } from "react-router-dom";
-import firebaseui from "firebaseui";
 import firebase from "firebase";
-import StyledFirebaseAuth from "react-firebaseui/FirebaseAuth"
 
-const uiConfig = {
-    signInOptions: [
-        firebase.auth.EmailAuthProvider.PROVIDER_ID
-    ],
-    signInSuccessUrl : "/"
-}
+// const uiConfig = {
+//     signInOptions: [
+//         firebase.auth.EmailAuthProvider.PROVIDER_ID
+//     ],
+//     signInSuccessUrl : "/"
+// }
 
 class Login extends React.Component {
     constructor(){
