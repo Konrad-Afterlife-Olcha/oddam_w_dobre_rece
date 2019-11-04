@@ -54,9 +54,11 @@
   margin-left: 100px;
 }
 .steps-nav {
-  margin: 20px 0 0 5%
+  margin: 20px 0 0 5%;
 }
-
+.steps-nav button {
+  margin: 20px;
+}
 
 .donations-rotated-square {
   width: calc(4vw + 4vh);
@@ -105,25 +107,118 @@
 .step-header {
   font-size: 1.4rem;
   font-weight: 500;
+  padding-top: 30px;
+  color: $color-black
 }
 .step-small-header {
   font-size: 1rem;
   font-weight: 600;
-  padding: 10px 10px 10px 0;
+  padding: 20px 20px 20px 0;
+  color: $color-black
 }
 .select-location {
   margin: 10px 10px 10px 0;
-
 }
 select {
   background-color: transparent;
   width: 160px;
 }
-input[type=text] {
+input[type=text], input[type=date], input[type=time] {
   background-color: transparent;
   border: 1px solid $color-gray;
   width: 300px;
 }
 form {
   color: $color-black
+}
+.address-form {
+  display: flex;
+}
+.address-form div {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 100px;
+}
+.address-form input {
+  width: 150px;
+  height: 1.5rem;
+}
+.address-form label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.address-form label span {
+  width: 100px;
+}
+textarea {
+  background-color: transparent;
+  width: 150px;
+  height: 90px;
+  border: 1px solid $color-gray;
+  resize: none;
+}
+.icon-clothes-summary {
+  width: 30px;
+  height: 30px;
+  background-image: url(../assets/Icon-1.svg);
+  background-size: contain;
+  margin-right: 20px;
+}
+.icon-round-summary {
+  width: 30px;
+  height: 30px;
+  background-image: url(../assets/Icon-4.svg);
+  background-size: contain;
+  margin-right: 20px;
+}
+.donation-summary-part1 div {
+  display: flex;
+  align-items: center;
+  margin: 5px 10px 5px 0;
+}
+.donation-summary-part1 div p {
+  font-size: 0.9rem;
+}
+.summary-part2 {
+  display: flex;
+  flex-direction: row;
+}
+.part2 {
+  margin-right: 80px;
+  width: 300px;
+}
+.donation-summary-part2-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.donation-summary-part2-details p {
+  color: $color-gray;
+  width: 70px;
+  font-size: 0.9rem;
+  padding: 5px 5px 5px 0;
+}
+.thanks {
+height: 100%;
+}
+.thanks-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  transform: translateX(-20%);
+}
+.thanks-text {
+  text-align: center;
+  font-size: 2rem;
+  color: $color-gray;
+  font-weight: 300;
+}
+.thanks {
+
 }

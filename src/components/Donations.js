@@ -5,7 +5,14 @@ const donationInfo = store({
     step1option: "option1",
     step2: "1",
     step3location: "",
-    step3helpGroups: []
+    step3helpGroups: [],
+    street: "",
+    city: "",
+    postCode: "",
+    phoneNumber: "",
+    date: "",
+    time: "",
+    note: ""
 });
 
 class Donations extends React.Component {
@@ -53,29 +60,31 @@ class DonationsStepArea extends React.Component {
     constructor(){
         super();
         this.state = {
-            step: 4
+            step: 1
         }
     }
     render() {
         return(
             <>
                 <div className={"steps-area"}>
-                    {this.state.step !== 5 ? <div className={"steps-header"}>
+                    {(this.state.step !== 5 && this.state.step !== 6) ? <div className={"steps-header"}>
                         {this.state.step === 1 ? <DonationsStepHeader text={"Uzupełnij szczegóły dotyczące Twoich rzeczy. Dzięki temu będziemy wiedzieć komu najlepiej je przekazać."}/> : null}
                         {this.state.step === 2 ? <DonationsStepHeader text={"Wszystkie rzeczy do oddania zapakuj w 60l worki. Dokładną instrukcję jak poprawnie spakować rzeczy znajdziesz TUTAJ"}/> : null}
                         {this.state.step === 3 ? <DonationsStepHeader text={"Jeśli wiesz komu chcesz pomóc, możesz wpisać nazwę tej organizacji w wyszukiwarce. Możesz też filtrować organizacje po ich lokalizacji bądź celu ich pomocy."}/> : null}
                         {this.state.step === 4 ? <DonationsStepHeader text={"Podaj adres oraz termin odbioru rzeczy."}/> : null }
                     </div> : null}
                     <div className={"step-area"}>
-                        {this.state.step === 5 ? null : <p className={"step-counter"}>Krok {this.state.step}/4</p>}
+                        {this.state.step >= 4 ? null : <p className={"step-counter"}>Krok {this.state.step}/4</p>}
                         {this.state.step === 1 ? <StepOne/> : null}
                         {this.state.step === 2 ? <StepTwo/> : null}
                         {this.state.step === 3 ? <StepThree/> : null}
                         {this.state.step === 4 ? <StepFour/> : null}
                         {this.state.step === 5 ? <StepFive/> : null}
+                        {this.state.step === 6 ? <Thanks/> : null}
                         <nav className={"steps-nav"}>
-                            {this.state.step !== 1 ? <button onClick={()=>(this.setState({step: this.state.step-1}))} className={"step-button"}>Wstecz</button> : null}
-                            {this.state.step !== 5 ? <button onClick={()=>(this.setState({step: this.state.step+1}))} className={"step-button"}>Dalej</button> : <button className={"step-button"}>Potwierdzam</button>}
+                            {(this.state.step !== 1 && this.state.step !== 6) ? <button onClick={()=>(this.setState({step: this.state.step-1}))} className={"step-button"}>Wstecz</button> : null}
+                            {(this.state.step !== 5 && this.state.step !== 6) ? <button onClick={()=>(this.setState({step: this.state.step+1}))} className={"step-button"}>Dalej</button> : (this.state.step === 6 ? null : <button onClick={()=>(this.setState({step: this.state.step+1}))} className={"step-button"}>Potwierdzam</button>)}
+
                         </nav>
                     </div>
 
@@ -293,8 +302,54 @@ class StepFour extends React.Component {
                 <div className={"step-details"}>
                    <p className={"step-header"}>Podaj adres oraz termin odbioru rzeczy przez kuriera</p>
                     <form className={"address-form"}>
-                        <div className={"address-info"}></div>
-                        <div className={"data-info"}></div>
+                        <div>
+                            <p className={"step-small-header"}>Adres odbioru</p>
+                            <label>
+                                <span>Ulica</span>
+                                <input type="text" onChange={(e)=>{
+                                    donationInfo.street = e.target.value
+                                }} defaultValue={donationInfo.street}/>
+                            </label>
+                            <label>
+                                <span>Miasto</span>
+                                <input type="text" onChange={(e)=>{
+                                    donationInfo.city = e.target.value
+                                }} defaultValue={donationInfo.city}/>
+                            </label>
+                            <label>
+                                <span>Kod pocztowy</span>
+                                <input type="text" onChange={(e)=>{
+                                    donationInfo.postCode = e.target.value
+                                }} defaultValue={donationInfo.postCode}/>
+                            </label>
+                            <label>
+                                <span>Numer telefonu</span>
+                                <input type="text" onChange={(e)=>{
+                                    donationInfo.phoneNumber = e.target.value
+                                }} defaultValue={donationInfo.phoneNumber}/>
+                            </label>
+                        </div>
+                        <div>
+                            <p className={"step-small-header"}>Termin odbioru</p>
+                            <label>
+                                <span>Data</span>
+                                <input type="date" onChange={(e)=>{
+                                    donationInfo.date = e.target.value
+                                }} defaultValue={donationInfo.date}/>
+                            </label>
+                            <label>
+                                <span>Godzina</span>
+                                <input type="time" onChange={(e)=>{
+                                    donationInfo.time = e.target.value
+                                }} defaultValue={donationInfo.time}/>
+                            </label>
+                            <label>
+                                <span>Uwagi dla kuriera</span>
+                                <textarea onChange={(e)=>{
+                                    donationInfo.note = e.target.value
+                                }} defaultValue={donationInfo.note}/>
+                            </label>
+                        </div>
                     </form>
                 </div>
             </>
@@ -305,9 +360,80 @@ class StepFive extends React.Component {
     render() {
         return(
             <>
-                <div className={"step-details"}></div>
+                <div className={"step-details"}>
+                    <p className={"step-header"}>Podsumowanie Twojej darowizny</p>
+                    <div className={"donation-summary-part1"}>
+                        <p className={"step-header"}>Oddajesz:</p>
+                        <div>
+                            <div className={"icon-clothes-summary"}></div>
+                            <p>{donationInfo.step2} worki, {donationInfo.step1}, {donationInfo.step3helpGroups.map((el)=>(
+                                el + ","
+                            ))} </p>
+                        </div>
+                        <div>
+                            <div className={"icon-round-summary"}></div>
+                            <p>dla lokalizacji: {donationInfo.step3location}</p>
+                        </div>
+                    </div>
+                    <div className={"donation-summary-part2"}>
+                        <div className={"summary-part2"}>
+                            <div className={"part2"}>
+                                <p className={"step-small-header"}>Adres odbioru:</p>
+                                <div className={"donation-summary-part2-details"}>
+                                    <p>Ulica: </p>
+                                    <p>{donationInfo.street}</p>
+                                </div>
+                                <div className={"donation-summary-part2-details"}>
+                                    <p>Miasto: </p>
+                                    <p>{donationInfo.city}</p>
+                                </div>
+                                <div className={"donation-summary-part2-details"}>
+                                    <p>Kod pocztowy: </p>
+                                    <p>{donationInfo.postCode}</p>
+                                </div>
+                                <div className={"donation-summary-part2-details"}>
+                                    <p>Numer telefonu: </p>
+                                    <p>{donationInfo.phoneNumber}</p>
+                                </div>
+                            </div>
+                            <div className={"part2"}>
+                                <p className={"step-small-header"}>Termin odbioru:</p>
+                                <div className={"donation-summary-part2-details"}>
+                                    <p>Data: </p>
+                                    <p>{donationInfo.date}</p>
+                                </div>
+                                <div className={"donation-summary-part2-details"}>
+                                    <p>Godzina: </p>
+                                    <p>{donationInfo.time}</p>
+                                </div>
+                                <div className={"donation-summary-part2-details"}>
+                                    <p>Uwagi dla kuriera: </p>
+                                    <p>{donationInfo.note}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </>
         )
+    }
+}
+class Thanks extends React.Component {
+    render() {
+        return (
+            <>
+                <div className={"thanks"}>
+                    <div className={"thanks-area"}>
+                        <p className={"thanks-text"}>Dziękujemy za przesłanie formularza <br/>
+                        Na maila prześlemy wszelkie <br/>
+                        informacje o odbiorze
+                        </p>
+                        <div className={"home-header-line"}></div>
+
+                    </div>
+                </div>
+            </>
+        );
     }
 }
 export default Donations
