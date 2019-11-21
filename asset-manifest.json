@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/oddam_w_dobre_rece/static/css/main.ad7cccc9.chunk.css",
+    "main.js": "/oddam_w_dobre_rece/static/js/main.b228f251.chunk.js",
+    "main.js.map": "/oddam_w_dobre_rece/static/js/main.b228f251.chunk.js.map",
+    "runtime-main.js": "/oddam_w_dobre_rece/static/js/runtime-main.c0cf6a47.js",
+    "runtime-main.js.map": "/oddam_w_dobre_rece/static/js/runtime-main.c0cf6a47.js.map",
+    "static/js/2.228e2763.chunk.js": "/oddam_w_dobre_rece/static/js/2.228e2763.chunk.js",
+    "static/js/2.228e2763.chunk.js.map": "/oddam_w_dobre_rece/static/js/2.228e2763.chunk.js.map",
+    "index.html": "/oddam_w_dobre_rece/index.html",
+    "precache-manifest.6836e3cefec2f075d7434b029a192d5f.js": "/oddam_w_dobre_rece/precache-manifest.6836e3cefec2f075d7434b029a192d5f.js",
+    "service-worker.js": "/oddam_w_dobre_rece/service-worker.js",
+    "static/css/main.ad7cccc9.chunk.css.map": "/oddam_w_dobre_rece/static/css/main.ad7cccc9.chunk.css.map",
+    "static/media/main.scss": "/oddam_w_dobre_rece/static/media/Signature.e54cfcfc.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c0cf6a47.js",
+    "static/js/2.228e2763.chunk.js",
+    "static/css/main.ad7cccc9.chunk.css",
+    "static/js/main.b228f251.chunk.js"
+  ]
+}
