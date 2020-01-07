@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 class HomeHeader extends React.Component {
@@ -7,17 +7,17 @@ class HomeHeader extends React.Component {
 
         return (
             <>
-                <div className={"home-header-container"}>
-                    <div className={"home-header-image"}></div>
-                    <div className={"home-header-article"}>
-                        <div className={"home-header-text"}>
-                            <p>Zacznij pomagać!</p><br/>
+                <div className={"header__container"}>
+                    <div className={"header__image"}></div>
+                    <div className={"header__article"}>
+                        <div className={"header__text"}>
+                            <p>Zacznij pomagać!</p><br />
                             <p>Oddaj niechciane rzeczy w zaufane ręce</p>
                             <div className={"home-header-line"}></div>
                         </div>
-                        <div className={"home-header-links"}>
-                            <Link to="/logowanie" className={"home-header-link"}>Oddaj <br/> rzeczy</Link>
-                            <Link to="/logowanie" className={"home-header-link"}>Zorganizuj <br/> zbiórkę</Link>
+                        <div className={"header__links"}>
+                            <Link to="/logowanie" className={"header__link"}>Oddaj <br /> rzeczy</Link>
+                            <Link to="/logowanie" className={"header__link"}>Zorganizuj <br /> zbiórkę</Link>
                         </div>
                     </div>
                 </div>

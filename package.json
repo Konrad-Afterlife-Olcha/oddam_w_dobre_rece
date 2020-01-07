@@ -2,7 +2,8 @@
   "name": "oddam_w_dobre_rece",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://Konrad-Afterlife-Olcha.github.io/oddam_w_dobre_rece",
+  "homepage": "https://konrad-afterlife-olcha.github.io/oddam_w_dobre_rece/",
+
   "dependencies": {
     "create-react-app": "^3.2.0",
     "firebase": "^7.2.1",
