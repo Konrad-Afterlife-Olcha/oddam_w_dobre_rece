@@ -76,13 +76,10 @@
 @media (max-width: 650px) {
   .header__article {
     width: 100%;
+    padding: 100px 0 20vh 0;
   }
 
   .header__image {
     display: none;
-  }
-
-  .header__article {
-    padding: 100px auto 20% auto;
   }
 }

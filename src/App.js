@@ -8,7 +8,8 @@ import {
 } from "react-router-dom";
 import firebase from "firebase";
 import firebaseConfig from "./firebaseConfig";
-import {Link , Events} from 'react-scroll'
+import { Link, Events } from 'react-scroll';
+import { slide as Menu } from 'react-burger-menu';
 import Home from "./components/Home";
 import Login from "./components/Login";
 import Register from "./components/Register";
@@ -52,83 +53,92 @@ class App extends React.Component {
 
 
     return (
-        <>
-          <Router>
-            <div className={"menu"}>
-              <nav>
-                {this.state.isLoggedIn ?
-                <ul className={"menu-login"}>
-                  <li>
-                    <p>Cześć {firebase.auth().currentUser.email}</p>
+      <>
+        <Router>
+          <div className={"menu"}>
+            <nav>
+              {this.state.isLoggedIn ?
+                <ul className={"menu__login"}>
+                  <li className={"menu__element"}>
+                    <p className={"menu__login--welcome"}>Cześć {firebase.auth().currentUser.email}</p>
                   </li>
-                  <li className={"menu-active-button"}>
-                    <NavLink to="/oddaj-rzeczy">Oddaj rzeczy</NavLink>
+                  <li className={"menu__element menu__button--active"}>
+                    <NavLink className={"menu__login--link"} to="/oddaj-rzeczy">Oddaj rzeczy</NavLink>
                   </li>
-                  <li>
-                    <NavLink to="wylogowano">
-                    <button className={"menu-logout"} onClick={()=> {
-                      firebase.auth().signOut();
-                    }}>Wyloguj</button>
+                  <li className={"menu__element"}>
+                    <NavLink className={"menu__login--link"} to="wylogowano">
+                      <button className={"menu__logout"} onClick={() => {
+                        firebase.auth().signOut();
+                      }}>Wyloguj</button>
                     </NavLink>
                   </li>
                 </ul> :
-                  <ul className={"menu-login"}>
-                      <li>
-                        <NavLink to="/logowanie">Zaloguj</NavLink>
-                      </li>
-                      <li className={"menu-active-button"}>
-                      <NavLink to="/rejestracja">Załóż konto</NavLink>
-                    </li>
-                  </ul>}
-
-
-
-              </nav>
-              <nav>
-                <ul className={"main-menu"}>
-                  <li>
-                    <NavLink activeClassName={"active-menu"} exact to="/">Start</NavLink>
+                <ul className={"menu__login"}>
+                  <li className={"menu__element"}>
+                    <NavLink className={"menu__login--link"} to="/logowanie">Zaloguj</NavLink>
                   </li>
-                  <li>
-                    <Link to="homeSteps" spy={true} smooth={true} duration={1000}>O co chodzi?</Link>
+                  <li className={"menu__button--active"}>
+                    <NavLink className={"menu__login--link"} to="/rejestracja">Załóż konto</NavLink>
                   </li>
-                  <li>
-                    <Link to="homeAboutUs" spy={true} smooth={true} duration={1000}>O nas</Link>
-                  </li>
-                  <li>
-                    <Link to="homeFoundations" spy={true} smooth={true} duration={1000}>Fundacja i organizacje</Link>
-                  </li>
-                  <li>
-                    <Link to="homeContact" spy={true} smooth={true} duration={1000}>Kontakt</Link>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-            <Switch>
-                <Route path="/logowanie">
-                        <Login/>
-                </Route>
-                <Route path="/rejestracja">
-                        <Register/>
-                </Route>
-                <Route path="/wylogowano">
-                            <Logout/>
-                </Route>
-              <Route path="/oddaj-rzeczy">
-                <Donations/>
-                <HomeContact/>
-              </Route>
-                <Route path="/">
-                        <Home/>
-                </Route>
+                </ul>}
 
 
-                </Switch>
 
-          </Router>
+            </nav>
+            {
+              window.innerWidth < 650 ? <Menu right className={"hamburger-menu"}>
+                <a>Start</a>
+                <a>O co chodzi?</a>
+                <a>O nas</a>
+                <a>Fundacja i organizacje</a>
+                <a>Kontakt</a>
+              </Menu> : null
+            }
+            <nav className={"main-nav"}>
+              <ul className={"main-menu"}>
+                <li className="main-menu__element">
+                  <NavLink className={"main-menu__link"} activeClassName={"main-menu__link--active"} exact to="/">Start</NavLink>
+                </li>
+                <li className="main-menu__element">
+                  <Link className={"main-menu__link"} to="homeSteps" spy={true} smooth={true} duration={1000}>O co chodzi?</Link>
+                </li>
+                <li className="main-menu__element">
+                  <Link className={"main-menu__link"} to="homeAboutUs" spy={true} smooth={true} duration={1000}>O nas</Link>
+                </li>
+                <li className="main-menu__element">
+                  <Link className={"main-menu__link"} to="homeFoundations" spy={true} smooth={true} duration={1000}>Fundacja i organizacje</Link>
+                </li>
+                <li className="main-menu__element">
+                  <Link className={"main-menu__link"} to="homeContact" spy={true} smooth={true} duration={1000}>Kontakt</Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <Switch>
+            <Route path="/logowanie">
+              <Login />
+            </Route>
+            <Route path="/rejestracja">
+              <Register />
+            </Route>
+            <Route path="/wylogowano">
+              <Logout />
+            </Route>
+            <Route path="/oddaj-rzeczy">
+              <Donations />
+              <HomeContact />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
 
 
-                  </>
+          </Switch>
+
+        </Router>
+
+
+      </>
     );
   }
 }
