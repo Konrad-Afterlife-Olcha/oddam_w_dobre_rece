@@ -26,10 +26,17 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoggedIn: false
+      isLoggedIn: false,
+      windowWidth: window.innerWidth,
+      isOpen: false
     }
   }
   componentDidMount() {
+    window.addEventListener("resize", () => {
+      this.setState({
+        windowWidth: window.innerWidth
+      })
+    })
     firebase.auth().onAuthStateChanged(user =>
       this.setState({
         isLoggedIn: !!user
@@ -43,6 +50,7 @@ class App extends React.Component {
       console.log("end", arguments);
     });
 
+
   }
 
   componentWillUnmount() {
@@ -55,6 +63,14 @@ class App extends React.Component {
     return (
       <>
         <Router>
+          {
+            window.innerWidth <= 650 ? <Menu right className={"hamburger-menu"}>
+              <Link className={"hamburger-menu__link"} to="homeAboutUs" spy={true} smooth={true} duration={1000} >O nas</Link>
+              <Link className={"hamburger-menu__link"} to="homeSteps" spy={true} smooth={true} duration={1000}>O co chodzi?</Link>
+              <Link className={"hamburger-menu__link"} to="homeFoundations" spy={true} smooth={true} duration={1000}>Fundacja i organizacje</Link>
+              <Link className={"hamburger-menu__link"} to="homeContact" spy={true} smooth={true} duration={1000}>Kontakt</Link>
+            </Menu> : null
+          }
           <div className={"menu"}>
             <nav>
               {this.state.isLoggedIn ?
@@ -85,15 +101,8 @@ class App extends React.Component {
 
 
             </nav>
-            {
-              window.innerWidth < 650 ? <Menu right className={"hamburger-menu"}>
-                <a>Start</a>
-                <a>O co chodzi?</a>
-                <a>O nas</a>
-                <a>Fundacja i organizacje</a>
-                <a>Kontakt</a>
-              </Menu> : null
-            }
+
+
             <nav className={"main-nav"}>
               <ul className={"main-menu"}>
                 <li className="main-menu__element">
