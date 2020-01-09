@@ -129,12 +129,15 @@ Note: Beware of modifying this element as it can break the animations - you shou
   /* Wrapper for item list */
   .bm-item-list {
     color: #b8b7ad;
-    padding: 0.8em;
+    padding: 10%;
+    font-size: 1.6rem;
   }
 
   /* Individual item */
   .bm-item {
     display: inline-block;
+    padding: 10px;
+    cursor: pointer;
   }
 
   /* Styling of overlay */

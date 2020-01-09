@@ -28,8 +28,15 @@ class App extends React.Component {
     this.state = {
       isLoggedIn: false,
       windowWidth: window.innerWidth,
-      isOpen: false
+      menuOpen: false
     }
+  }
+  handleStateChange(state) {
+    this.setState({ menuOpen: state.isOpen })
+    console.log(this.state.menuOpen)
+  }
+  closeMenu() {
+    this.setState({ menuOpen: false })
   }
   componentDidMount() {
     window.addEventListener("resize", () => {
@@ -64,11 +71,11 @@ class App extends React.Component {
       <>
         <Router>
           {
-            window.innerWidth <= 650 ? <Menu right className={"hamburger-menu"}>
-              <Link className={"hamburger-menu__link"} to="homeAboutUs" spy={true} smooth={true} duration={1000} >O nas</Link>
-              <Link className={"hamburger-menu__link"} to="homeSteps" spy={true} smooth={true} duration={1000}>O co chodzi?</Link>
-              <Link className={"hamburger-menu__link"} to="homeFoundations" spy={true} smooth={true} duration={1000}>Fundacja i organizacje</Link>
-              <Link className={"hamburger-menu__link"} to="homeContact" spy={true} smooth={true} duration={1000}>Kontakt</Link>
+            window.innerWidth <= 650 ? <Menu right className={"hamburger-menu"} width={"100%"} isOpen={this.state.menuOpen} onStateChange={(state) => this.handleStateChange(state)} >
+              <Link className={"hamburger-menu__link"} to="homeAboutUs" spy={true} smooth={true} duration={1000} onClick={() => this.closeMenu()}>O nas</Link>
+              <Link className={"hamburger-menu__link"} to="homeSteps" spy={true} smooth={true} duration={1000} onClick={() => this.closeMenu()}>O co chodzi?</Link>
+              <Link className={"hamburger-menu__link"} to="homeFoundations" spy={true} smooth={true} duration={1000} onClick={() => this.closeMenu()}>Fundacja i organizacje</Link>
+              <Link className={"hamburger-menu__link"} to="homeContact" spy={true} smooth={true} duration={1000} onClick={() => this.closeMenu()}>Kontakt</Link>
             </Menu> : null
           }
           <div className={"menu"}>
