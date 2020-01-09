@@ -1,44 +1,52 @@
-.home-aboutus-container {
+.aboutus__container,
+.aboutus__article {
+  display: flex;
+}
+
+.aboutus__container {
   height: 100vh;
+  min-height: 500px;
   width: 100%;
-  display: flex;
 }
-.home-aboutus-article-container {
+
+.aboutus__article {
   background-color: $color-white;
-  width: 50%;
-  display: flex;
-  justify-content: center;
-}
-.home-aboutus-article {
   box-sizing: border-box;
-  width: 70%;
-  display: flex;
+  width: 50%;
+  min-height: 500px;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  color: $color-black
+  color: $color-black;
+  padding: 10px 20px;
 }
-.home-aboutus-header {
+
+.aboutus__title {
   font-size: 2.3rem;
   font-weight: 500;
+
 }
-.home-aboutus-text {
+
+.aboutus__text {
   font-size: 1.7rem;
   text-align: center;
-  padding-bottom: 100px;
   line-height: 3rem;
 }
-.home-aboutus-signature {
- align-self: flex-end;
-}
-.home-aboutus-signature {
-  background-image: url("../assets/Signature.svg");
-  width: 209px;
-  height: 149px;
-}
-.home-aboutus-picture {
+
+.aboutus__picture {
   background-image: url("../assets/People.jpg");
   background-size: cover;
+  background-position: center;
   width: 50%;
   height: 100%;
+}
+
+@media (max-width: 650px) {
+  .aboutus__picture {
+    display: none;
+  }
+
+  .aboutus__article {
+    width: 100%;
+  }
 }
