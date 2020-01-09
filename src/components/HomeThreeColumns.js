@@ -6,10 +6,10 @@ class HomeThreeColumns extends React.Component {
 
         return (
             <>
-                <div className={"home-columns-container"}>
-                    <SingleColumn number={10} description={"Oddanych worków"}/>
-                    <SingleColumn number={5} description={"wspartych organizacji"}/>
-                    <SingleColumn number={7} description={"zorganizowanych zbiórek"}/>
+                <div className={"three-columns__container"}>
+                    <SingleColumn number={10} description={"Oddanych worków"} />
+                    <SingleColumn number={5} description={"wspartych organizacji"} />
+                    <SingleColumn number={7} description={"zorganizowanych zbiórek"} />
                 </div>
             </>
         )
@@ -20,10 +20,10 @@ class SingleColumn extends React.Component {
 
         return (
             <>
-                <div className={"home-single-column"}>
-                    <p>{this.props.number}</p>
-                    <p>{this.props.description}</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A architecto, cumque distinctio dolor ducimus eligendi fuga illum incidunt iste labore laborum.</p>
+                <div className={"three-columns__column"}>
+                    <h2 className={"three-columns__number"}>{this.props.number}</h2>
+                    <h3 className={"three-columns__title"}>{this.props.description}</h3>
+                    <p className={"three-columns__text"}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A architecto, cumque distinctio dolor ducimus eligendi fuga illum incidunt iste labore laborum.</p>
                 </div>
 
             </>

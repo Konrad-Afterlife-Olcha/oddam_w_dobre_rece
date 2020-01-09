@@ -33,7 +33,6 @@ class App extends React.Component {
   }
   handleStateChange(state) {
     this.setState({ menuOpen: state.isOpen })
-    console.log(this.state.menuOpen)
   }
   closeMenu() {
     this.setState({ menuOpen: false })

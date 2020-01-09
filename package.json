@@ -20,6 +20,7 @@
     "reset.css": "^2.0.2"
   },
   "scripts": {
+    "svgr": "svgr -d src/components/Icons/ src/assets/",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -43,6 +44,7 @@
     ]
   },
   "devDependencies": {
+    "@svgr/cli": "^5.0.1",
     "gh-pages": "^2.1.1"
   }
 }
